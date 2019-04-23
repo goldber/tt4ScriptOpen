@@ -110,7 +110,8 @@ def TT4resolve(fingerList):
             ,pressure,majorAxis,minorAxis,orientation]],axis=0)
         count=count+1
     return fInf,frec    
-def TT4Init():    
+def TT4Init():
+    GPIO.setwarnings(False)
     GPIO.setmode(GPIO.BOARD)
     #Power on Reset for the ParadeIC
     print "Setup Pin12,16,18,7 GPIO18 as output"

@@ -4,6 +4,8 @@ import numpy as np
 import RPi.GPIO as GPIO
 import time
 import lib.tt4PrintRep as tt4P
+import lib.tt4R as tt4R
+import lib.tt4D as tt4D
 import lib.tt4Lib as tt4
 from smbus2 import SMBusWrapper, i2c_msg
 """
@@ -16,6 +18,10 @@ python tt4Main.py --tt4P (do not print to file)
 Case 2
 
 Case 3
+
+Case 4 to get the Cm and Cp self test data
+python tt4Main.py --tt4R --37 --27 --filename.txt
+python tt4Main.py --tt4R --37 --27
 
 """
 
@@ -38,11 +44,13 @@ def main():
         if tt4.case('tt4L'):
             print "Start to do the tt4L test."
             break
-        if tt4.case('tt4N'):
-            print "Start to do the tt4N test."
+        if tt4.case('tt4R'):
+            print "Start to do the tt4R test."
+            tt4R.tt4R()
             break
-        if tt4.case('tt4X'):
-            print "Start to do the tt4X test."
+        if tt4.case('tt4D'):
+            print "Start to do the tt4D test."
+            tt4D.tt4D()
             break
         print "No argument is not allowded."
         break        
